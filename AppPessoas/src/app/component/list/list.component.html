@@ -1,12 +1,119 @@
-
-<div class="container">
+<div class="container mt-4">
   <div class="list-group">
-    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-      The current link item
-    </a>
-    <a href="#" class="list-group-item list-group-item-action">A second link item</a>
-    <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-    <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-    <a class="list-group-item list-group-item-action disabled" aria-disabled="true">A disabled link item</a>
+    <div class="list-group-item list-group-item-dark">
+      <div class="row text-center fw-bold">
+        <div class="col-1">ID</div>
+        <div class="col-3">Nome</div>
+        <div class="col-3">Endereço</div>
+        <div class="col-2">Contatos</div>
+        <div class="col-1">Editar</div>
+        <div class="col-1">Excluir</div>
+      </div>
+    </div>
+
+    <div class="list-group">
+      <div
+        class="list-group-item"
+        *ngFor="let item of itens; let i = index"
+        style="border-bottom: 1px solid #ddd"
+      >
+        <div class="row align-items-center text-center">
+          <div class="col-1">{{ i + 1 }}</div>
+          <div class="col-3">{{ item.nome }}</div>
+          <div class="col-3">{{ item.endereco }}</div>
+          <div class="col-2">{{ item.email }}</div>
+          <div class="col-1">
+            <button
+              type="button"
+              class="btn btn-warning btn-sm"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+            >
+              ✏️
+            </button>
+            <div class="noCenter">
+              <div
+                class="modal fade"
+                id="staticBackdrop"
+                data-bs-backdrop="static"
+                data-bs-keyboard="false"
+                tabindex="-1"
+                aria-labelledby="staticBackdropLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                        Cadastro
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="mb-3">
+                          <label for="inputName" class="form-label">Nome</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="inputName"
+                            placeholder="Digite o Nome completo"
+                          />
+                        </div>
+                        <div class="mb-3">
+                          <label for="inputEmail" class="form-label"
+                            >Email</label
+                          >
+                          <input
+                            type="email"
+                            class="form-control"
+                            id="inputEmail"
+                            placeholder="email@mail.com"
+                          />
+                          <div id="nameHelp" class="form-text">
+                            Digite o email
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <label for="inputContact" class="form-label"
+                            >Contato</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="inputContact"
+                            placeholder="(13)9999-9999"
+                          />
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-danger"
+                        data-bs-dismiss="modal"
+                      >
+                        Fechar
+                      </button>
+                      <button type="button" class="btn btn-success">
+                        Salvar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-1">
+            <button class="btn btn-danger btn-sm">🗑️</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
