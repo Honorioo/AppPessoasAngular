@@ -1,35 +1,35 @@
-<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Cadastrar
+<button type="button" class="btn btn-secondary btn-sm btn-color" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  {{ nameButton }}
 </button>
 
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Cadastro</h1>
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ nameTitle }}</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form>
           <div class="mb-3">
-            <label for="inputName" class="form-label">Nome</label>
+            <label for="inputName" class="form-label">{{ nameInput }}</label>
             <input type="text" class="form-control" id="inputName" placeholder="Digite o Nome completo">
           </div>
           <div class="mb-3">
-            <label for="inputCep" class="form-label">CEP</label>
+            <label for="inputCep" class="form-label">{{ cep }}</label>
             <input type="cep" class="form-control" id="inputCep" placeholder="00000-000">
             <div id="cepHelp" class="form-text">Digite o seu CEP </div>
           </div>
           <div class="mb-3">
-            <label for="inputEndereco" class="form-label">Endereco</label>
+            <label for="inputEndereco" class="form-label">{{ aderess }}</label>
             <input type="text" class="form-control" id="inputEndereco" placeholder="Rua A">
           </div>
           <div class="mb-3">
-            <label for="inputCidade" class="form-label">Cidade</label>
+            <label for="inputCidade" class="form-label">{{ city }}</label>
             <input type="text" class="form-control" id="inputCidade" placeholder="São Paulo">
           </div>
           <div class="mb-3">
-            <label for="inputUf" class="form-label">UF</label>
+            <label for="inputUf" class="form-label">{{ uf }}</label>
             <input type="text" class="form-control" id="inputUf" placeholder="SP">
           </div>
         </form>

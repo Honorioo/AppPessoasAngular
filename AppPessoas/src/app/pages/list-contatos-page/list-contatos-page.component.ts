@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-list-contatos-page',
@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./list-contatos-page.component.scss']
 })
 export class ListContatosPageComponent {
+
+  @Input()
+  id: string = 'ID';
+
+  @Input()
+  name: string = 'Nome';
+
+  @Input()
+  coluna1: string = 'Tipo Contato';
+
+  @Input()
+  coluna2: string = 'Contato';
+
 
 }
