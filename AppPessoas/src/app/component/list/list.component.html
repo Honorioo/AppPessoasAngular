@@ -45,59 +45,39 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <h1 class="modal-title fs-5" id="staticBackdropLabel">
-                        Cadastro
+                        Editar
                       </h1>
                       <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
+                        type="button" class="btn-close"  data-bs-dismiss="modal" aria-label="Close"
                       ></button>
                     </div>
                     <div class="modal-body">
                       <form>
                         <div class="mb-3">
                           <label for="inputName" class="form-label">Nome</label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="inputName"
-                            placeholder="Digite o Nome completo"
-                          />
+                          <input type="text" class="form-control" id="inputName" placeholder="Digite o Nome completo">
                         </div>
                         <div class="mb-3">
-                          <label for="inputEmail" class="form-label"
-                            >Email</label
-                          >
-                          <input
-                            type="email"
-                            class="form-control"
-                            id="inputEmail"
-                            placeholder="email@mail.com"
-                          />
-                          <div id="nameHelp" class="form-text">
-                            Digite o email
-                          </div>
+                          <label for="inputCep" class="form-label">CEP</label>
+                          <input type="cep" class="form-control" id="inputCep" placeholder="00000-000">
+                          <div id="cepHelp" class="form-text">Digite o seu CEP </div>
                         </div>
                         <div class="mb-3">
-                          <label for="inputContact" class="form-label"
-                            >Contato</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="inputContact"
-                            placeholder="(13)9999-9999"
-                          />
+                          <label for="inputEndereco" class="form-label">Endereco</label>
+                          <input type="text" class="form-control" id="inputEndereco" placeholder="Rua A">
+                        </div>
+                        <div class="mb-3">
+                          <label for="inputCidade" class="form-label">Cidade</label>
+                          <input type="text" class="form-control" id="inputCidade" placeholder="São Paulo">
+                        </div>
+                        <div class="mb-3">
+                          <label for="inputUf" class="form-label">UF</label>
+                          <input type="text" class="form-control" id="inputUf" placeholder="SP">
                         </div>
                       </form>
                     </div>
                     <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-danger"
-                        data-bs-dismiss="modal"
-                      >
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
                         Fechar
                       </button>
                       <button type="button" class="btn btn-success">
