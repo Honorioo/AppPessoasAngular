@@ -12,14 +12,14 @@
     </div>
 
     <div class="list-group">
-      <div class="list-group-item" *ngFor="let item of itens; let i = index" style="border-bottom: 1px solid #ddd">
+      <div class="list-group-item" *ngFor="let pessoa of pessoas; let i = index" style="border-bottom: 1px solid #ddd">
         <div class="row align-items-center text-center">
           <div class="col-1">{{ i + 1 }}</div>
-          <div class="col-3">{{ item.nome }}</div>
-          <div class="col-3">{{ item.endereco }}</div>
+          <div class="col-3">{{ pessoa.name }}</div>
+          <div class="col-3">{{ pessoa.enderecoCompleto }}</div>
           <div class="col-2">
             <button type="button" class="btn btn-info btn-sm">
-              <a href="/listaContatos">📞</a>
+              <a [routerLink]="['/listaContatos']">📞</a>
             </button>
           </div>
           <div class="col-1 d-flex justify-content-center">
@@ -31,11 +31,13 @@
                 [cep]="'CEP'"
                 [aderess]="'Endereço'"
                 [city]="'Cidade'"
-                [uf]="'UF'"></app-modal>
+                [uf]="'UF'"
+                [pessoa]="pessoa">
+              </app-modal>
             </div>
           </div>
           <div class="col-1 d-flex justify-content-center">
-            <button class="btn btn-danger btn-sm">🗑️</button>
+            <button class="btn btn-danger btn-sm">🗑️</button>  <!-- Função de exclusão -->
           </div>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import { AppServiceService } from 'src/app/service/app-service.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,7 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-[x: string]: any;
   title = 'AppPessoas';
 
+
+  constructor(private appServiceService: AppServiceService) {}
 }

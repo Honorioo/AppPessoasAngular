@@ -12,12 +12,12 @@
     </div>
 
     <div class="list-group">
-      <div class="list-group-item" *ngFor="let item of itens; let i = index" style="border-bottom: 1px solid #ddd">
+      <div class="list-group-item" *ngFor="let pessoa of pessoas; let i = index" style="border-bottom: 1px solid #ddd">
         <div class="row align-items-center text-center">
           <div class="col-1">{{ i + 1 }}</div>
-          <div class="col-3">{{ item.nome }}</div>
-          <div class="col-3">{{ item.tipoContato }}</div>
-          <div class="col-2">{{ item.contato }}</div>
+          <div class="col-3">{{ pessoa.name }}</div>
+          <div class="col-3">{{ pessoa.type }}</div>
+          <div class="col-2">{{ pessoa.contact }}</div>
           <div class="col-1 d-flex justify-content-center">
             <div class="noCenter">
               <button type="button" class="btn btn-secondary btn-sm btn-color" data-bs-toggle="modal" data-bs-target="#staticBackdrop">

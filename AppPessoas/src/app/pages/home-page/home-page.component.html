@@ -1,9 +1,12 @@
-<app-list
+
+  <app-list
   [id]="'ID'"
   [name]="'Nome'"
   [coluna1]="'Endereço'"
   [coluna2]="'Contatos'"
-></app-list>
+  [pessoas]="pessoas"
+  ></app-list>
+
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
   <app-modal
     [nameButton]="'Cadastrar'"

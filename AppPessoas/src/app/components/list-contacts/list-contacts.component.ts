@@ -7,9 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class ListContactsComponent {
 
-  itens = [
-    { nome: 'João Silva', tipoContato: 'Telefone', contato: '13996093979'},
-  ];
+  @Input()
+  pessoas:any = []
 
   @Input()
   id: any = {};

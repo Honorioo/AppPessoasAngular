@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { IPessoas } from 'src/app/interfaces/pessoas';
 
 @Component({
   selector: 'app-modal',
@@ -6,6 +7,8 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent {
+    @Input() pessoa: IPessoas | null = null;
+
     @Input()
     nameButton: any = {};
 
