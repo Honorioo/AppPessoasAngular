@@ -4,6 +4,8 @@ import { ListContatosPageComponent } from './pages/list-contatos-page/list-conta
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { FormUpdatePessoaComponent } from './components/pessoaComponents/form-update-pessoa/form-update-pessoa.component';
 import { FormCreatePessoaComponent } from './components/pessoaComponents/form-create-pessoa/form-create-pessoa.component';
+import { FormUpdateComponent } from './components/contatoComponents/form-update/form-update.component';
+import { FormCadastroComponent } from './components/contatoComponents/form-cadastro/form-cadastro.component';
 
 const routes: Routes = [
   {
@@ -18,6 +20,12 @@ const routes: Routes = [
   {
     path: 'criar-pessoa', component: FormCreatePessoaComponent
   },
+  {
+    path: 'editar-contato/:id', component: FormUpdateComponent
+  },
+  {
+    path: 'criar-contato', component: FormCadastroComponent
+  }
 
 
 ];

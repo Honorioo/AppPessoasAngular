@@ -13,25 +13,25 @@ export class ContatoService {
 
     constructor(private http: HttpClient) {}
 
-    searchPessoas(): Observable<IContatos[]> {
+    searchContatos(): Observable<IContatos[]> {
       return this.http.get<IContatos[]>(`${this.apiUrl}`);
     }
 
-    getPessoaById(id: number): Observable<IContatos> {
+    getContatoById(id: number): Observable<IContatos> {
       return this.http.get<IContatos>(`${this.apiUrl}/${id}`);
     }
 
 
-    create(contato: IContatos): Observable<IContatos> {
+    createContato(contato: IContatos): Observable<IContatos> {
       return this.http.post<IContatos>(`${this.apiUrl}`, contato);
     }
 
-    updatePessoa(contato: IContatos): Observable<IContatos> {
+    updateContato(contato: IContatos): Observable<IContatos> {
       const url = `${this.apiUrl}/${contato.id}`;
       return this.http.put<IContatos>(url, contato);
     }
 
-    deletePessoas(id: number): Observable<IContatos> {
+    deleteContato(id: number): Observable<IContatos> {
       return this.http.delete<IContatos>(`${this.apiUrl}/${id}`);
     }
 }

@@ -1,9 +1,9 @@
-import { IPessoas } from "./pessoas";
+import { IPessoasCompleta } from "./pessoaCompleta";
 
 export interface IContatos {
-  id: string,
-  name: string,
-  type: string,
-  contact: string,
-  pessoas: IPessoas[]
+  id: number | null,
+  nome: string,
+  tipoContato: string,
+  contato: string,
+  pessoas: IPessoasCompleta[]
 }
