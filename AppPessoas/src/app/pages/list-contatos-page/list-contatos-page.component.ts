@@ -7,17 +7,4 @@ import { Component, Input } from '@angular/core';
 })
 export class ListContatosPageComponent {
 
-  @Input()
-  id: string = 'ID';
-
-  @Input()
-  name: string = 'Nome';
-
-  @Input()
-  coluna1: string = 'Tipo Contato';
-
-  @Input()
-  coluna2: string = 'Contato';
-
-
 }

@@ -1,6 +1,6 @@
-import { AppServiceService } from 'src/app/service/app-service.service';
 import { IPessoas } from './../../interfaces/pessoas';
 import { Component } from '@angular/core';
+import { PessoaService } from 'src/app/service/pessoa/pessoa.service';
 
 @Component({
   selector: 'app-home-page',
@@ -11,7 +11,7 @@ export class HomePageComponent {
 
   pessoas: IPessoas[] = [];
 
-  constructor(private appServiceService: AppServiceService) {}
+  constructor(private appServiceService: PessoaService) {}
 
   ngOnInit() {
     this.appServiceService.searchPessoas().subscribe({

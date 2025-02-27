@@ -1,7 +1,7 @@
+import { PessoaService } from './../../../service/pessoa/pessoa.service';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { IPessoas } from 'src/app/interfaces/pessoas';
-import { AppServiceService } from 'src/app/service/app-service.service';
 
 @Component({
   selector: 'app-list',
@@ -12,7 +12,7 @@ export class ListComponent {
 
   @Input() pessoas: IPessoas[] = [];
 
-  constructor(private appService: AppServiceService, private router: Router) {}
+  constructor(private appService: PessoaService, private router: Router) {}
 
   delete(id: number): void {
     if (id) {

@@ -6,19 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./list-contacts.component.scss']
 })
 export class ListContactsComponent {
-
-  @Input()
-  pessoas:any = []
-
-  @Input()
-  id: any = {};
-
-  @Input()
-  name: any = {};
-
-  @Input()
-  coluna1: any = {};
-
-  @Input()
-  coluna2: any = {};
+  @Input() contatos: any[] = [];
 }

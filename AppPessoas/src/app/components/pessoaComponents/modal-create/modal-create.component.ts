@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IPessoasCompleta } from 'src/app/interfaces/pessoaCompleta';
-import { AppServiceService } from 'src/app/service/app-service.service';
+import { PessoaService } from 'src/app/service/pessoa/pessoa.service';
 
 @Component({
   selector: 'app-modal-create',
@@ -10,7 +10,7 @@ import { AppServiceService } from 'src/app/service/app-service.service';
 })
 export class ModalCreateComponent implements OnInit  {
 
-  constructor(private appService: AppServiceService, private router: Router) { }
+  constructor(private appService: PessoaService, private router: Router) { }
 
   pessoa: IPessoasCompleta = {
     id: null,
@@ -29,7 +29,7 @@ export class ModalCreateComponent implements OnInit  {
     this.appService.create(this.pessoa).subscribe({
       next: () => {
         console.log('Pessoa criada com sucesso', this.pessoa);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/']);
       },
       error: (err) => {
         console.error('Erro ao criar pessoa:', err);

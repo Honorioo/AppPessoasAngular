@@ -4,14 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { ListComponent } from './components/list/list.component';
+import { ListComponent } from './components/pessoaComponents/list/list.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ModalComponent } from './components/modal/modal.component';
+import { ModalComponent } from './components/pessoaComponents/modal/modal.component';
 import { ListContatosPageComponent } from './pages/list-contatos-page/list-contatos-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { ListContactsComponent } from './components/list-contacts/list-contacts.component';
-import { ModalCreateComponent } from './components/modal-create/modal-create.component';
+import { ListContactsComponent } from './components/contatoComponents/list-contacts/list-contacts.component';
+import { ModalCreateComponent } from './components/pessoaComponents/modal-create/modal-create.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({

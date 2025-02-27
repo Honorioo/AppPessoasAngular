@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IPessoasCompleta } from 'src/app/interfaces/pessoaCompleta';
-import { AppServiceService } from 'src/app/service/app-service.service';
+import { PessoaService } from 'src/app/service/pessoa/pessoa.service';
 
 @Component({
   selector: 'app-modal',
@@ -19,7 +19,7 @@ export class ModalComponent implements OnInit {
   };
 
   constructor(
-    private appService: AppServiceService,
+    private appService: PessoaService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
@@ -49,7 +49,7 @@ export class ModalComponent implements OnInit {
       this.appService.updatePessoa(this.pessoa).subscribe({
         next: () => {
           console.log('Pessoa atualizada com sucesso', this.pessoa);
-          this.router.navigate(['/home']);
+          this.router.navigate(['/']);
         },
         error: (err) => {
           console.error('Erro ao atualizar pessoa:', err);
