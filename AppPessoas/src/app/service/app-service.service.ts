@@ -31,7 +31,7 @@ export class AppServiceService {
     return this.http.put<IPessoas>(url, pessoa);
   }
 
-  deletePessoas(pessoa: IPessoasCompleta) {
-    this.http.delete(`${this.apiUrl}/pessoa/${1}`);
+  deletePessoas(id: number): Observable<IPessoas> {
+    return this.http.delete<IPessoas>(`${this.apiUrl}/${id}`);
   }
 }
