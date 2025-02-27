@@ -4,11 +4,11 @@ import { IPessoasCompleta } from 'src/app/interfaces/pessoaCompleta';
 import { PessoaService } from 'src/app/service/pessoa/pessoa.service';
 
 @Component({
-  selector: 'app-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss']
+  selector: 'form-update-pessoa',
+  templateUrl: './form-update-pessoa.component.html',
+  styleUrls: ['./form-update-pessoa.component.scss']
 })
-export class ModalComponent implements OnInit {
+export class FormUpdatePessoaComponent implements OnInit {
   pessoa: IPessoasCompleta = {
     id: null,
     nome: '',

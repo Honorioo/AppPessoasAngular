@@ -4,11 +4,11 @@ import { IPessoasCompleta } from 'src/app/interfaces/pessoaCompleta';
 import { PessoaService } from 'src/app/service/pessoa/pessoa.service';
 
 @Component({
-  selector: 'app-modal-create',
-  templateUrl: './modal-create.component.html',
-  styleUrls: ['./modal-create.component.scss']
+  selector: 'app-form-create-pessoa',
+  templateUrl: './form-create-pessoa.component.html',
+  styleUrls: ['./form-create-pessoa.component.scss']
 })
-export class ModalCreateComponent implements OnInit  {
+export class FormCreatePessoaComponent implements OnInit  {
 
   constructor(private appService: PessoaService, private router: Router) { }
 
