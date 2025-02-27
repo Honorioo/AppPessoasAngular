@@ -14,7 +14,7 @@
     <div class="list-group">
       <div class="list-group-item" *ngFor="let pessoa of pessoas; let i = index" style="border-bottom: 1px solid #ddd">
         <div class="row align-items-center text-center">
-          <div class="col-1">{{ i + 1 }}</div>
+          <div class="col-1">{{ pessoa.id }}</div>
           <div class="col-3">{{ pessoa.name }}</div>
           <div class="col-3">{{ pessoa.enderecoCompleto }}</div>
           <div class="col-2">
@@ -29,7 +29,7 @@
                 [nameTitle]="'Editar Contato'"
                 [nameInput]="'Nome Completo'"
                 [cep]="'CEP'"
-                [aderess]="'Endereço'"
+                [address]="'Endereço'"
                 [city]="'Cidade'"
                 [uf]="'UF'"
                 [pessoa]="pessoa">
@@ -37,7 +37,7 @@
             </div>
           </div>
           <div class="col-1 d-flex justify-content-center">
-            <button class="btn btn-danger btn-sm">🗑️</button>  <!-- Função de exclusão -->
+            <button type="button" class="btn btn-danger btn-sm">🗑️</button>
           </div>
         </div>
       </div>

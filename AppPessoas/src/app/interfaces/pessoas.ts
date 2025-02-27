@@ -1,5 +1,5 @@
 export interface IPessoas {
-  id: string;
+  id: number;
   name: string;
   enderecoCompleto: string;
 }

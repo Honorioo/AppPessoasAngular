@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-secondary btn-sm btn-color" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+<button type="button" class="btn btn-secondary btn-sm btn-color" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="selecionarPessoa(pessoa)" >
   {{ nameButton }}
 </button>
 
@@ -10,33 +10,36 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form [formGroup]="pessoaForm" (ngSubmit)="onSubmit()">
           <div class="mb-3">
             <label for="inputName" class="form-label">{{ nameInput }}</label>
-            <input type="text" class="form-control" id="inputName" placeholder="Digite o Nome completo">
+            <input type="text" class="form-control" id="inputName" placeholder="Digite o Nome completo" formControlName="nome">
           </div>
           <div class="mb-3">
-            <label for="inputCep" class="form-label">{{ cep }}</label>
-            <input type="cep" class="form-control" id="inputCep" placeholder="00000-000">
-            <div id="cepHelp" class="form-text">Digite o seu CEP </div>
+            <label for="inputCep" class="form-label">CEP</label>
+            <input type="text" class="form-control" id="inputCep" placeholder="00000-000" formControlName="cep">
+            <div id="cepHelp" class="form-text">Digite o seu CEP</div>
           </div>
           <div class="mb-3">
-            <label for="inputEndereco" class="form-label">{{ aderess }}</label>
-            <input type="text" class="form-control" id="inputEndereco" placeholder="Rua A">
+            <label for="inputEndereco" class="form-label">Endereço</label>
+            <input type="text" class="form-control" id="inputEndereco" placeholder="Rua A" formControlName="endereco">
           </div>
           <div class="mb-3">
-            <label for="inputCidade" class="form-label">{{ city }}</label>
-            <input type="text" class="form-control" id="inputCidade" placeholder="São Paulo">
+            <label for="inputCidade" class="form-label">Cidade</label>
+            <input type="text" class="form-control" id="inputCidade" placeholder="São Paulo" formControlName="cidade">
           </div>
           <div class="mb-3">
-            <label for="inputUf" class="form-label">{{ uf }}</label>
-            <input type="text" class="form-control" id="inputUf" placeholder="SP">
+            <label for="inputUf" class="form-label">UF</label>
+            <input type="text" class="form-control" id="inputUf" placeholder="SP" formControlName="uf">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+            <select formControlName="id">
+              <option *ngFor="let id of pessoaForm.get('id')?.value" [value]="id">{{ id }}</option>
+            </select>
+            <button type="submit">Salvar</button>
           </div>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-success">Salvar</button>
       </div>
     </div>
   </div>

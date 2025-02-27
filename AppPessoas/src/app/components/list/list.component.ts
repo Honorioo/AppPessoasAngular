@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 import { IPessoas } from 'src/app/interfaces/pessoas';
 
@@ -9,7 +8,9 @@ import { IPessoas } from 'src/app/interfaces/pessoas';
 })
 export class ListComponent {
 
+
   @Input() pessoas: IPessoas[] = [];
+
   /* Lista Dinamica */
   @Input()
   id: any = {};

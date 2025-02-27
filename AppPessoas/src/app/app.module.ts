@@ -11,6 +11,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { ListContatosPageComponent } from './pages/list-contatos-page/list-contatos-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ListContactsComponent } from './components/list-contacts/list-contacts.component';
+import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { ListContactsComponent } from './components/list-contacts/list-contacts.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
