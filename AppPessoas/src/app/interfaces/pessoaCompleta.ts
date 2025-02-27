@@ -1,9 +1,8 @@
 export interface IPessoasCompleta {
-  id: number;
+  id: number | null;
   nome: string;
   endereco: string;
   cidade: string;
   uf: string;
-  cep: string
+  cep: string;
 }
-

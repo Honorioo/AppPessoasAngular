@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { IPessoasCompleta } from 'src/app/interfaces/pessoaCompleta';
 import { IPessoas } from 'src/app/interfaces/pessoas';
 
 @Component({
@@ -11,16 +12,6 @@ export class ListComponent {
 
   @Input() pessoas: IPessoas[] = [];
 
-  /* Lista Dinamica */
-  @Input()
-  id: any = {};
+  @Input() pessoa: IPessoasCompleta = {} as IPessoasCompleta
 
-  @Input()
-  name: any = {};
-
-  @Input()
-  coluna1: any = {};
-
-  @Input()
-  coluna2: any = {};
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, first, Observable, tap, throwError } from 'rxjs';
 import { IPessoas } from '../interfaces/pessoas';
+import { IPessoasCompleta } from '../interfaces/pessoaCompleta';
 
 @Injectable({
   providedIn: 'root'
@@ -16,13 +17,21 @@ export class AppServiceService {
     return this.http.get<IPessoas[]>(`${this.apiUrl}`);
   }
 
-  getPessoaById(id: string): Observable<IPessoas> {
-    return this.http.get<IPessoas>(`${this.apiUrl}/${id}`);
+  getPessoaById(id: number): Observable<IPessoasCompleta> {
+    return this.http.get<IPessoasCompleta>(`${this.apiUrl}/${id}`);
   }
-  update(pessoa: IPessoas): Observable<IPessoas> {
-    return this.http.put<IPessoas>(`${this.apiUrl}/${pessoa.id}`, pessoa);
+
+
+  create(pessoa: IPessoasCompleta): Observable<IPessoas> {
+    return this.http.post<IPessoas>(`${this.apiUrl}`, pessoa);
   }
-  deletePessoas() {
+
+  updatePessoa(pessoa: IPessoasCompleta): Observable<IPessoas> {
+    const url = `${this.apiUrl}/${pessoa.id}`;
+    return this.http.put<IPessoas>(url, pessoa);
+  }
+
+  deletePessoas(pessoa: IPessoasCompleta) {
     this.http.delete(`${this.apiUrl}/pessoa/${1}`);
   }
 }
