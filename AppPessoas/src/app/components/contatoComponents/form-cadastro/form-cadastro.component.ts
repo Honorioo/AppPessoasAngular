@@ -55,7 +55,6 @@ export class FormCadastroComponent implements OnInit {
       return;
     }
 
-    // Buscar a pessoa selecionada
     const pessoaSelecionada = this.pessoas.find(pessoa => pessoa.id === this.pessoaSelecionadaId);
     console.log('Pessoa selecionada encontrada:', pessoaSelecionada);
 

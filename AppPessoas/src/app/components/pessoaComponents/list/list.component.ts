@@ -12,12 +12,13 @@ import { IPessoas } from 'src/app/interfaces/pessoas';
 export class ListComponent {
 
   @Input() pessoas: IPessoas[] = [];
-  @Input() contatos: IContatos[] = [];
 
   constructor(private appService: PessoaService, private router: Router) {}
 
-  getContatoNome(contato: any): string {
-    return contato.name ? contato.name : 'Sem pessoa';
+  @Input() contatos: IContatos[] = [];
+
+  getPessoaNome(contato: any): string {
+    return contato.pessoa ? contato.pessoa.nome : 'Sem pessoa';
   }
 
   delete(id: number): void {

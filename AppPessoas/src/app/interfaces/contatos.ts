@@ -1,6 +1,3 @@
-import { IPessoasCompleta } from "./pessoaCompleta";
-import { IPessoas } from "./pessoas";
-
 export interface IContatos {
   id: number | null,
   nome: string,

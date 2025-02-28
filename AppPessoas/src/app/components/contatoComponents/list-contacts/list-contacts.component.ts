@@ -25,7 +25,6 @@ export class ListContactsComponent {
       this.appService.deleteContato(id).subscribe({
         next: () => {
           console.log(`Pessoa com ID ${id} excluída com sucesso`);
-          // Atualiza a lista de pessoas localmente
           this.contatos = this.contatos.filter(contato => contato.id !== id);
         },
         error: (err) => {
