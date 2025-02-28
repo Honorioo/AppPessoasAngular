@@ -45,6 +45,11 @@ export class FormUpdatePessoaComponent implements OnInit {
   }
 
   updatePessoas(): void {
+    if (!this.pessoa.nome || !this.pessoa.endereco || !this.pessoa.cidade || !this.pessoa.uf || !this.pessoa.cep) {
+      alert('Todos os campos devem ser preenchidos.');
+      return;
+    }
+
     if (this.pessoa.id !== null) {
       this.appService.updatePessoa(this.pessoa).subscribe({
         next: () => {

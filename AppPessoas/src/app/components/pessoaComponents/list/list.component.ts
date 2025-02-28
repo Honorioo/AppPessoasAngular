@@ -1,6 +1,7 @@
 import { PessoaService } from './../../../service/pessoa/pessoa.service';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { IContatos } from 'src/app/interfaces/contatos';
 import { IPessoas } from 'src/app/interfaces/pessoas';
 
 @Component({
@@ -11,8 +12,13 @@ import { IPessoas } from 'src/app/interfaces/pessoas';
 export class ListComponent {
 
   @Input() pessoas: IPessoas[] = [];
+  @Input() contatos: IContatos[] = [];
 
   constructor(private appService: PessoaService, private router: Router) {}
+
+  getContatoNome(contato: any): string {
+    return contato.name ? contato.name : 'Sem pessoa';
+  }
 
   delete(id: number): void {
     if (id) {

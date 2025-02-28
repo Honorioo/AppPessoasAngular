@@ -17,7 +17,7 @@ export class FormUpdateComponent {
     nome: '',
     tipoContato: TipoContato.CELULAR,
     contato: '',
-    pessoas: []
+    pessoa: { id: null }
   };
 
   constructor(
@@ -50,6 +50,11 @@ export class FormUpdateComponent {
   }
 
   updateContato(): void {
+    if (!this.contatos.nome || !this.contatos.tipoContato || !this.contatos.contato) {
+      alert('Todos os campos devem ser preenchidos.');
+      return;
+    }
+
     if (this.contatos.id !== null) {
       this.appService.updateContato(this.contatos).subscribe({
         next: () => {

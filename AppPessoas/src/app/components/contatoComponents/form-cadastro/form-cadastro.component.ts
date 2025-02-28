@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IContatos } from 'src/app/interfaces/contatos';
-import { IPessoasCompleta } from 'src/app/interfaces/pessoaCompleta';
 import { IPessoas } from 'src/app/interfaces/pessoas';
 import { TipoContato } from 'src/app/interfaces/tipoContato';
 import { ContatoService } from 'src/app/service/contato/contato.service';
@@ -12,8 +11,9 @@ import { PessoaService } from 'src/app/service/pessoa/pessoa.service';
   templateUrl: './form-cadastro.component.html',
   styleUrls: ['./form-cadastro.component.scss']
 })
-export class FormCadastroComponent {
-  constructor(private appService: ContatoService, private router: Router, private pessoaService: PessoaService) { }
+export class FormCadastroComponent implements OnInit {
+  pessoas: IPessoas[] = [];
+  pessoaSelecionadaId: number | null = null;
 
   tiposContato = Object.values(TipoContato);
 
@@ -22,39 +22,67 @@ export class FormCadastroComponent {
     nome: '',
     tipoContato: TipoContato.CELULAR,
     contato: '',
-    pessoas: []
+    pessoa: { id: null }
   };
 
-  pessoas: IPessoas[] = [];
+  constructor(
+    private contatoService: ContatoService,
+    private pessoaService: PessoaService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.listarPessoa()
+    this.carregarPessoas();
   }
 
-  listarPessoa() {
+  carregarPessoas(): void {
     this.pessoaService.searchPessoas().subscribe({
-      next: (pessoas: IPessoas[]) => {
-        this.pessoas = pessoas;
-        console.log('Retorno pessoas:', this.pessoas);
-      },
-      error: (error) => {
-        console.error('Erro ao carregar pessoas:', error.message);
-      }
-    });
-  }
-
-
-
-  createContatos(): void {
-    this.appService.createContato(this.contatos).subscribe({
-
-      next: () => {
-        console.log('Pessoa criada com sucesso', this.contatos);
-        this.router.navigate(['/']);
+      next: (data) => {
+        this.pessoas = data;
       },
       error: (err) => {
-        console.error('Erro ao criar pessoa:', err);
+        console.error('Erro ao carregar pessoas:', err);
       }
     });
   }
+
+  createContatos(): void {
+    console.log('Lista de pessoas carregadas:', this.pessoas);
+    console.log('ID da pessoa selecionada:', this.pessoaSelecionadaId);
+
+    if (!this.contatos.nome || !this.contatos.tipoContato || !this.contatos.contato || !this.pessoaSelecionadaId) {
+      alert('Todos os campos devem ser preenchidos.');
+      return;
+    }
+
+    // Buscar a pessoa selecionada
+    const pessoaSelecionada = this.pessoas.find(pessoa => pessoa.id === this.pessoaSelecionadaId);
+    console.log('Pessoa selecionada encontrada:', pessoaSelecionada);
+
+    if (!pessoaSelecionada) {
+      alert('Pessoa selecionada não encontrada.');
+      return;
+    }
+
+    const contatoParaEnvio: IContatos = {
+      id: this.contatos.id,
+      nome: this.contatos.nome,
+      tipoContato: this.contatos.tipoContato,
+      contato: this.contatos.contato,
+      pessoa: { id: pessoaSelecionada.id }
+    };
+
+    console.log('JSON que será enviado:', contatoParaEnvio);
+
+    this.contatoService.createContato(contatoParaEnvio).subscribe({
+      next: () => {
+        console.log('Contato criado com sucesso', contatoParaEnvio);
+        this.router.navigate(['/listaContatos']);
+      },
+      error: (err) => {
+        console.error('Erro ao criar contato:', err);
+      }
+    });
+  }
+
 }

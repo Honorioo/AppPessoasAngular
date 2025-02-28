@@ -26,6 +26,11 @@ export class FormCreatePessoaComponent implements OnInit  {
   }
 
   createPessoas(): void {
+    if (!this.pessoa.nome || !this.pessoa.endereco || !this.pessoa.cidade || !this.pessoa.uf || !this.pessoa.cep) {
+      alert('Todos os campos devem ser preenchidos.');
+      return;
+    }
+
     this.appService.create(this.pessoa).subscribe({
       next: () => {
         console.log('Pessoa criada com sucesso', this.pessoa);

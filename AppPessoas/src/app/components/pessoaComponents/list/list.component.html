@@ -1,6 +1,5 @@
 <div class="container mt-4">
   <div class="list-group">
-    <!-- Cabeçalho -->
     <div class="list-group-item list-group-item-dark">
       <div class="row text-center fw-bold">
         <div class="col-1">ID</div>
@@ -12,16 +11,14 @@
       </div>
     </div>
 
-    <!-- Lista de Pessoas -->
+
     <div *ngFor="let pessoa of pessoas; let i = index" class="list-group-item" style="border-bottom: 1px solid #ddd">
       <div class="row align-items-center text-center">
         <div class="col-1">{{ pessoa.id }}</div>
         <div class="col-3">{{ pessoa.name }}</div>
         <div class="col-3">{{ pessoa.enderecoCompleto }}</div>
         <div class="col-2">
-          <button type="button" class="btn btn-info btn-sm" [routerLink]="['/listaContatos']">
-            Lista Contatos
-          </button>
+          <a [routerLink]="['/listaContatos']" alt="Ver Contatos">{{ getContatoNome(pessoa) }}</a>
         </div>
         <div class="col-1 d-flex justify-content-center noCenter" >
           <button type="button" class="btn btn-warning btn-sm" [routerLink]="['/editar-pessoa', pessoa.id]" routerLinkActive="router-link-active">
@@ -29,7 +26,9 @@
           </button>
         </div>
         <div class="col-1 d-flex justify-content-center">
-          <button (click)="delete(pessoa.id)" type="button" class="btn btn-danger btn-sm">Excluir</button>
+          <button *ngIf="pessoa.id !== null" (click)="delete(pessoa.id!)" type="button" class="btn btn-danger btn-sm">
+            Excluir
+          </button>
         </div>
       </div>
     </div>
